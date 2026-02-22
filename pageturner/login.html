@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PageTurner — Login</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body class="dark auth-page">
+
+  <!-- Animated background blobs -->
+  <div class="auth-bg">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+  </div>
+
+  <div class="auth-wrapper">
+    <!-- Left Panel -->
+    <div class="auth-panel auth-visual">
+      <div class="auth-brand">
+        <span class="logo-icon">📖</span>
+        <span class="logo-text">PageTurner</span>
+      </div>
+      <div class="auth-tagline">
+        <h2>Your journey through<br/><em>a thousand worlds</em><br/>begins here.</h2>
+        <p>100+ handpicked books. Smart filters. Your reading life, organised.</p>
+      </div>
+      <div class="auth-stats">
+        <div class="stat"><span>100+</span><small>Books</small></div>
+        <div class="stat"><span>8</span><small>Genres</small></div>
+        <div class="stat"><span>7</span><small>Moods</small></div>
+      </div>
+    </div>
+
+    <!-- Right Panel — Form -->
+    <div class="auth-panel auth-form-panel">
+      <div class="auth-form-container">
+        <div class="auth-form-header">
+          <h3>Welcome back</h3>
+          <p>Sign in to your PageTurner account</p>
+        </div>
+
+        <div id="loginAlert" class="auth-alert hidden"></div>
+
+        <form id="loginForm" class="auth-form" novalidate>
+          <div class="form-field">
+            <label for="loginEmail">Email Address</label>
+            <div class="input-wrap">
+              <span class="input-icon">✉️</span>
+              <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email"/>
+            </div>
+            <span class="field-error" id="emailErr"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="loginPassword">Password</label>
+            <div class="input-wrap">
+              <span class="input-icon">🔒</span>
+              <input type="password" id="loginPassword" placeholder="Enter your password" autocomplete="current-password"/>
+              <button type="button" class="toggle-pw" id="toggleLoginPw" aria-label="Toggle password">👁</button>
+            </div>
+            <span class="field-error" id="pwErr"></span>
+          </div>
+
+          <div class="form-row">
+            <label class="checkbox-label">
+              <input type="checkbox" id="rememberMe"/>
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="link-muted">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="auth-btn" id="loginBtn">
+            <span class="btn-text">Sign In</span>
+            <span class="btn-spinner hidden"></span>
+          </button>
+        </form>
+
+        <div class="auth-divider"><span>or</span></div>
+
+        <div class="auth-switch">
+          Don't have an account?
+          <a href="register.html">Create one free</a>
+        </div>
+
+        <div class="demo-hint">
+          <span>🧪</span>
+          <span>Demo: use any registered email & password</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Theme toggle -->
+  <button id="darkToggle" class="auth-theme-btn" aria-label="Toggle dark mode">
+    <span id="themeIcon">☀️</span>
+  </button>
+
+  <script src="auth.js"></script>
+</body>
+</html>

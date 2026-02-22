@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PageTurner — Register</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body class="dark auth-page">
+
+  <div class="auth-bg">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+  </div>
+
+  <div class="auth-wrapper">
+    <!-- Left Panel -->
+    <div class="auth-panel auth-visual">
+      <div class="auth-brand">
+        <span class="logo-icon">📖</span>
+        <span class="logo-text">PageTurner</span>
+      </div>
+      <div class="auth-tagline">
+        <h2>Join a community of<br/><em>passionate readers</em><br/>today.</h2>
+        <p>Create your free account and discover your next favourite book in seconds.</p>
+      </div>
+      <div class="auth-perks">
+        <div class="perk"><span>✅</span> Save your reading preferences</div>
+        <div class="perk"><span>✅</span> Filter 100+ curated books</div>
+        <div class="perk"><span>✅</span> Dark & light mode included</div>
+        <div class="perk"><span>✅</span> Completely free forever</div>
+      </div>
+    </div>
+
+    <!-- Right Panel — Form -->
+    <div class="auth-panel auth-form-panel">
+      <div class="auth-form-container">
+        <div class="auth-form-header">
+          <h3>Create your account</h3>
+          <p>It takes less than a minute</p>
+        </div>
+
+        <div id="registerAlert" class="auth-alert hidden"></div>
+
+        <!-- Progress steps -->
+        <div class="progress-steps">
+          <div class="step active" id="step1Dot">1</div>
+          <div class="step-line"></div>
+          <div class="step" id="step2Dot">2</div>
+        </div>
+
+        <form id="registerForm" class="auth-form" novalidate>
+
+          <!-- Step 1 -->
+          <div id="stepOne">
+            <div class="form-row two-col">
+              <div class="form-field">
+                <label for="firstName">First Name</label>
+                <div class="input-wrap">
+                  <span class="input-icon">👤</span>
+                  <input type="text" id="firstName" placeholder="Jane" autocomplete="given-name"/>
+                </div>
+                <span class="field-error" id="firstNameErr"></span>
+              </div>
+              <div class="form-field">
+                <label for="lastName">Last Name</label>
+                <div class="input-wrap">
+                  <span class="input-icon">👤</span>
+                  <input type="text" id="lastName" placeholder="Doe" autocomplete="family-name"/>
+                </div>
+                <span class="field-error" id="lastNameErr"></span>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="regEmail">Email Address</label>
+              <div class="input-wrap">
+                <span class="input-icon">✉️</span>
+                <input type="email" id="regEmail" placeholder="you@example.com" autocomplete="email"/>
+              </div>
+              <span class="field-error" id="regEmailErr"></span>
+            </div>
+
+            <button type="button" class="auth-btn" id="nextBtn">
+              Continue →
+            </button>
+          </div>
+
+          <!-- Step 2 -->
+          <div id="stepTwo" class="hidden">
+            <div class="form-field">
+              <label for="regPassword">Password</label>
+              <div class="input-wrap">
+                <span class="input-icon">🔒</span>
+                <input type="password" id="regPassword" placeholder="Min 8 characters" autocomplete="new-password"/>
+                <button type="button" class="toggle-pw" id="toggleRegPw" aria-label="Toggle password">👁</button>
+              </div>
+              <span class="field-error" id="regPwErr"></span>
+              <div class="pw-strength" id="pwStrength">
+                <div class="pw-bar"><div id="pwBar"></div></div>
+                <span id="pwLabel"></span>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="confirmPassword">Confirm Password</label>
+              <div class="input-wrap">
+                <span class="input-icon">🔒</span>
+                <input type="password" id="confirmPassword" placeholder="Repeat your password" autocomplete="new-password"/>
+              </div>
+              <span class="field-error" id="confirmPwErr"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="favGenre">Favourite Genre (optional)</label>
+              <div class="input-wrap">
+                <span class="input-icon">📚</span>
+                <select id="favGenre">
+                  <option value="">Select a genre</option>
+                  <option>Fiction</option>
+                  <option>Fantasy</option>
+                  <option>Thriller</option>
+                  <option>Romance</option>
+                  <option>Self-Help</option>
+                  <option>Science Fiction</option>
+                  <option>Historical</option>
+                  <option>Mystery</option>
+                </select>
+              </div>
+            </div>
+
+            <label class="checkbox-label" style="margin-bottom:1rem">
+              <input type="checkbox" id="termsCheck"/>
+              <span>I agree to the <a href="#" class="link-accent">Terms of Service</a></span>
+            </label>
+            <span class="field-error" id="termsErr"></span>
+
+            <div class="form-row two-col">
+              <button type="button" class="auth-btn auth-btn-outline" id="backBtn">← Back</button>
+              <button type="submit" class="auth-btn" id="registerBtn">
+                <span class="btn-text">Create Account</span>
+                <span class="btn-spinner hidden"></span>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="auth-divider"><span>or</span></div>
+        <div class="auth-switch">
+          Already have an account?
+          <a href="login.html">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button id="darkToggle" class="auth-theme-btn" aria-label="Toggle dark mode">
+    <span id="themeIcon">☀️</span>
+  </button>
+
+  <script src="auth.js"></script>
+</body>
+</html>

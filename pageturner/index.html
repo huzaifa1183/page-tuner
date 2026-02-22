@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PageTurner — Book Recommendations</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body class="dark">
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <span class="logo-icon">📖</span>
+      <span class="logo-text">PageTurner</span>
+    </div>
+    <div class="header-right">
+      <div class="user-menu" id="userMenu">
+        <div class="user-avatar" id="userAvatar">?</div>
+        <span class="user-name" id="userName">Guest</span>
+        <div class="user-dropdown" id="userDropdown">
+          <div class="dropdown-info" id="dropdownInfo"></div>
+          <button id="logoutBtn" class="dropdown-item">🚪 Sign Out</button>
+        </div>
+      </div>
+      <a href="login.html" id="loginLink" class="header-login-btn hidden">Sign In</a>
+      <button id="darkToggle" aria-label="Toggle dark mode">
+        <span id="themeIcon">☀️</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Find Your Next<br/><em>Great Read</em></h1>
+      <p>Discover books tailored to your taste, mood, and genre preferences.</p>
+    </div>
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label>Genre</label>
+        <select id="genreFilter">
+          <option value="">All Genres</option>
+          <option>Fiction</option>
+          <option>Fantasy</option>
+          <option>Thriller</option>
+          <option>Romance</option>
+          <option>Self-Help</option>
+          <option>Science Fiction</option>
+          <option>Historical</option>
+          <option>Mystery</option>
+          <option>Biography</option>
+          <option>Horror</option>
+          <option>Philosophy</option>
+          <option>Classic</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Mood</label>
+        <select id="moodFilter">
+          <option value="">All Moods</option>
+          <option>Happy</option>
+          <option>Motivational</option>
+          <option>Emotional</option>
+          <option>Adventure</option>
+          <option>Dark</option>
+          <option>Romantic</option>
+          <option>Thought-Provoking</option>
+          <option>Funny</option>
+          <option>Suspenseful</option>
+          <option>Inspiring</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Min Rating</label>
+        <select id="ratingFilter">
+          <option value="0">Any Rating</option>
+          <option value="3">3+ Stars</option>
+          <option value="4">4+ Stars</option>
+          <option value="4.5">4.5+ Stars</option>
+        </select>
+      </div>
+      <div class="filter-group search-group">
+        <label>Search</label>
+        <input type="text" id="searchInput" placeholder="Title or author…"/>
+      </div>
+      <div class="filter-group sort-group">
+        <label>Sort By</label>
+        <select id="sortFilter">
+          <option value="default">Default</option>
+          <option value="title">Title A–Z</option>
+          <option value="author">Author A–Z</option>
+          <option value="rating">Highest Rated</option>
+        </select>
+      </div>
+      <button id="recommendBtn">Recommend Books</button>
+    </div>
+  </section>
+
+  <div id="loader" class="loader hidden">
+    <div class="spinner"></div>
+    <p>Finding your perfect reads…</p>
+  </div>
+
+  <main id="resultsSection">
+    <div class="results-header hidden" id="resultsHeader">
+      <span id="resultCount"></span>
+      <span id="savedPref" class="saved-badge hidden">✓ Preferences saved</span>
+    </div>
+    <div id="bookGrid" class="book-grid"></div>
+    <div id="noResults" class="no-results hidden">
+      <span>📚</span>
+      <h3>No books found</h3>
+      <p>Try adjusting your filters or mood selection.</p>
+    </div>
+    <div id="pagination" class="pagination hidden"></div>
+  </main>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 PageTurner — Your personal reading companion</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
